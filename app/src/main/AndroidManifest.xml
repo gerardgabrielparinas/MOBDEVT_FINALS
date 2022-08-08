@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MODEVTFINALS">
         <activity
-            android:name=".EasyRoundActivity"
+            android:name=".MediumActivity"
             android:exported="false" />
         <activity
             android:name=".EndActivity"
