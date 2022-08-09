@@ -1,5 +1,6 @@
 package com.mobdevt.modevtfinals
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mobdevt.modevtfinals.databinding.ActivityMainBinding
@@ -14,7 +15,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnStart.setOnClickListener {
+            val intent = Intent(this, DifficultyActivity::class.java)
 
+            intent.putExtra("name", "Name")
+
+            startActivity(intent)
         }
     }
 }

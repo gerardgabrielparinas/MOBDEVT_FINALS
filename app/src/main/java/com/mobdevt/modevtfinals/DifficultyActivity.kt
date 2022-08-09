@@ -23,7 +23,7 @@ class DifficultyActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         btnEasy.setOnClickListener {
-            //val intent = Intent(this, EasyActivity::class.java)
+            val intent = Intent(this, EasyRoundActivity::class.java)
             startActivity(intent)
         }
         btnMedium.setOnClickListener {
