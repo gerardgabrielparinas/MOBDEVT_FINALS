@@ -2,9 +2,10 @@ package com.mobdevt.modevtfinals
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.mobdevt.modevtfinals.util.MainHelper
 
-class MainViewModel {
+class MainViewModel: ViewModel() {
     private val _question = MutableLiveData<String>()
     private val _answer = MutableLiveData<String>()
     private val _score = MutableLiveData<Int>()
