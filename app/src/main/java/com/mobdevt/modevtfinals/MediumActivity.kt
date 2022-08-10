@@ -18,17 +18,20 @@ class MediumActivity : AppCompatActivity() {
         binding = ActivityMediumBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val viewModel by viewModels<MainViewModel>()
-//
-//
-//        viewModel.question.observe(this){
-//            binding.txtQuestion.text = it
-//        }
-//
-//        if(viewModel.answer == binding.answerInput){
-//            //viewModel.score += 1
-//        }
-//
-//        }
+        val viewModel by viewModels<MainViewModel>()
+
+        viewModel.loadQuestion(2, 0)
+
+        binding.btnNext.setOnClickListener{
+
+
+        }
+        viewModel.question.observe(this){
+            binding.txtQuestion.text = it
+        }
+
+        viewModel.checkAnswer(binding.answerInput.toString(),2)
+
     }
+
 }
