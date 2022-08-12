@@ -14,9 +14,9 @@ class MainViewModel: ViewModel() {
     private val _score = MutableLiveData<Int>()
     private val _name = MutableLiveData<String>()
 
-    private var easyIndex: Int = 0
+    private var easyIndex: Int = -1
     private var mediumIndex: Int = -1
-    private var hardIndex: Int = 0
+    private var hardIndex: Int = -1
 
     val question:LiveData<String> = _question
     val answer:LiveData<String> = _answer
