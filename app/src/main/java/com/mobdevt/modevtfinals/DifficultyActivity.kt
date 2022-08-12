@@ -37,7 +37,7 @@ class DifficultyActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btnHard.setOnClickListener {
-            //val intent = Intent(this, HardActivity::class.java)
+            val intent = Intent(this, HardRoundActivity::class.java)
             startActivity(intent)
         }
     }

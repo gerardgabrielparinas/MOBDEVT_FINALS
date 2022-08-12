@@ -3,33 +3,35 @@ package com.mobdevt.modevtfinals
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.mobdevt.modevtfinals.databinding.ActivityHardBinding
 
 import com.mobdevt.modevtfinals.databinding.ActivityMainBinding
 import com.mobdevt.modevtfinals.databinding.ActivityMediumBinding
 import com.mobdevt.modevtfinals.util.MainHelper
 
-class MediumActivity : AppCompatActivity() {
+class HardRoundActivity : AppCompatActivity() {
 
     //private val tvQuestion by lazy {binding.tvQuestion}
-    private lateinit var binding : ActivityMediumBinding
+    private lateinit var binding : ActivityHardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMediumBinding.inflate(layoutInflater)
+        binding = ActivityHardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val viewModel by viewModels<MainViewModel>()
 
         viewModel.loadQuestion(2, 0)
 
-        binding.btnNext.setOnClickListener{
-            viewModel.checkAnswer(binding.answerInput.toString(),2)
+        binding.btnNext3.setOnClickListener{
+            viewModel.checkAnswer(binding.answerInput3.toString(),3)
+
         }
         viewModel.question.observe(this){
-            binding.txtQuestion.text = it
+            binding.txtQuestion3.text = it
         }
 
-        viewModel.checkAnswer(binding.answerInput.toString(),2)
+        viewModel.checkAnswer(binding.answerInput3.toString(),2)
 
     }
 

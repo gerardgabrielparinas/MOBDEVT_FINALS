@@ -3,7 +3,7 @@ package com.mobdevt.modevtfinals.util
 class MainHelper {
     companion object {
         private val easyQuestions = listOf(Question("Easy Question 1", "Easy Answer 2"), Question("Easy Question 2", "Easy Answer 2"))
-        private val mediumQuestions = listOf(Question("Medium Question 0", "Medium Answer 0"), Question("Medium Question 1", "Medium Answer 1"))
+        private val mediumQuestions = listOf(Question("My name is?", "Reuel"), Question("Medium Question 1", "Medium Answer 1"))
         private val hardQuestions = listOf(Question("Hard Question 1", "Hard Answer 1"), Question("Hard Question 2", "Hard Answer 2"))
 
         fun getEasyQuestion(index:Int): String {
