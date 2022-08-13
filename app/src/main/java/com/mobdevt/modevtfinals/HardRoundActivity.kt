@@ -21,17 +21,17 @@ class HardRoundActivity : AppCompatActivity() {
 
         val viewModel by viewModels<MainViewModel>()
 
-        viewModel.loadQuestion(2, 0)
+        viewModel.loadQuestion(3, 0)
 
         binding.btnNext3.setOnClickListener{
             viewModel.checkAnswer(binding.answerInput3.toString(),3)
-
+            binding.answerInput3.text?.clear()
         }
         viewModel.question.observe(this){
             binding.txtQuestion3.text = it
         }
 
-        viewModel.checkAnswer(binding.answerInput3.toString(),2)
+        viewModel.checkAnswer(binding.answerInput3.toString(),3)
 
     }
 
