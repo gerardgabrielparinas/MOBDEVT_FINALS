@@ -2,13 +2,8 @@ package com.mobdevt.modevtfinals.util
 
 class MainHelper {
     companion object {
-        private val easyQuestions = listOf(Question("Easy Question 1", "Easy Answer 2"), Question("Easy Question 2", "Easy Answer 2"))
-        private val mediumQuestions = listOf(Question("My name is?", "Reuel"), Question("Medium Question 1", "Medium Answer 1"))
-
-
-
-
-
+        private val easyQuestions = listOf(Question("Fuck me easy", "Easy Answer 2"), Question("Easy Question 2", "Easy Answer 2"))
+        private val mediumQuestions = listOf(Question("Fuck me medium?", "Reuel"), Question("Medium Question 1", "Medium Answer 1"))
 
         private val hardQuestions = listOf(Question("What is the worst-case and average-case time complexity of the Binary search?", "O(log n)"),
                                            Question("The minimum number of comparisons for a particular record 32 sorted records through binary search method will be?", "5"),
