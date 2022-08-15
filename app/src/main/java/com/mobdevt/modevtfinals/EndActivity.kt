@@ -16,6 +16,7 @@ class EndActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel by viewModels<MainViewModel>()
+        viewModel.loadScore()
 
         binding.btnRestart.setOnClickListener {
             viewModel.resetProgress()
@@ -35,6 +36,8 @@ class EndActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.txtScore.text = viewModel.score.toString()
+        viewModel.score.observe(this) {
+            binding.txtScore.text = it.toString()
+        }
     }
 }

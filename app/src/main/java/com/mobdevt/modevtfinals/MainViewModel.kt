@@ -4,11 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mobdevt.modevtfinals.util.MainHelper
+import kotlin.properties.Delegates
 
 class MainViewModel: ViewModel() {
     private val _question = MutableLiveData<String>()
     private val _answer = MutableLiveData<String>()
     private val _score = MutableLiveData<Int>()
+
 
     private var easyIndex: Int = 0
     private var mediumIndex: Int = 0
@@ -17,6 +19,7 @@ class MainViewModel: ViewModel() {
     val question:LiveData<String> = _question
     val answer:LiveData<String> = _answer
     val score:LiveData<Int> = _score
+
 
     fun loadQuestion(difficulty: Int, questionIndex: Int) {
         if (difficulty == 1) {

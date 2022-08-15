@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.HardwarePropertiesManager
 import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.mobdevt.modevtfinals.databinding.ActivityDifficultyBinding
+import com.mobdevt.modevtfinals.util.MainHelper
 
 
 class DifficultyActivity : AppCompatActivity() {
@@ -22,6 +24,7 @@ class DifficultyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         super.onCreate(savedInstanceState)
@@ -32,6 +35,7 @@ class DifficultyActivity : AppCompatActivity() {
         bgAnimationStart()
 
         btnEasy.setOnClickListener {
+            MainHelper.quizLevel = 1
             val intent = Intent(this, EasyRoundActivity::class.java)
             startActivity(intent)
             finish()
@@ -39,6 +43,7 @@ class DifficultyActivity : AppCompatActivity() {
 
         }
         btnMedium.setOnClickListener {
+            MainHelper.quizLevel = 2
             val intent = Intent(this, MediumActivity::class.java)
             startActivity(intent)
             finish()
@@ -46,6 +51,7 @@ class DifficultyActivity : AppCompatActivity() {
 
         }
         btnHard.setOnClickListener {
+            MainHelper.quizLevel = 3
             val intent = Intent(this, HardRoundActivity::class.java)
             startActivity(intent)
             finish()
