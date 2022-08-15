@@ -42,9 +42,6 @@ class MainHelper {
         /*https://engineeringinterviewquestions.com/mcqs-on-the-binary-number-system-answers/?adlt=strict&toWww=1&redig=7DEB872DF6D6439F8C4FD57EA831E9B7*/
 
         var quizLevel: Int = 0
-        var easyMaxIndex : Int = easyQuestions.size - 1
-        var mediumMaxIndex: Int = mediumQuestions.size - 1
-        var hardMaxIndex: Int = hardQuestions.size - 1
         private var isLast: Boolean = false
 
         fun getEasyQuestion(index:Int): String {
