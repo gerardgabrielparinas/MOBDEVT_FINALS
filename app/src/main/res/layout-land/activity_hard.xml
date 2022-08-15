@@ -4,28 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HardRoundctivity">
-
-    <Button
-        android:id="@+id/btnNext3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next Question"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerInput3" />
+    tools:context=".HardRoundActivity">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/answerInput3"
-        android:layout_width="match_parent"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:hint="Type your answer..."
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestion3" />
 
     <TextView
         android:id="@+id/txtQuestion3"
@@ -35,7 +25,34 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/answerInput3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="729dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerInput3"
+        tools:layout_editor_absoluteX="1dp">
+
+        <Button
+            android:id="@+id/btnNext3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginEnd="25dp"
+            android:text="Next Question" />
+
+        <Button
+            android:id="@+id/btnSubmitHard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="200dp"
+            android:text="Submit Quiz" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

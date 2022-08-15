@@ -4,19 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_list">
+    android:background="@drawable/gradient_list"><![CDATA[
     tools:context=".HardRoundctivity">
+
+
+
+    ]]>
+
+    <Button
+        android:id="@+id/btnSubmitHard"
+        android:layout_width="120dp"
+        android:layout_height="50sp"
+        android:background="@drawable/custom_btn_start"
+        android:text="Submit Quiz"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNext3" />
 
     <Button
         android:id="@+id/btnNext3"
         android:layout_width="120dp"
         android:layout_height="50sp"
-        android:text="Next Question"
         android:background="@drawable/custom_btn_start"
+        android:text="Next Question"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmitHard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerInput3" />
 
@@ -26,21 +43,22 @@
         android:layout_height="wrap_content"
         android:hint="Type your answer..."
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnNext3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestion3" />
 
     <TextView
         android:id="@+id/txtQuestion3"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Fuck hard"
-        android:textColor="@color/black"
         android:textAlignment="center"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/answerInput3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

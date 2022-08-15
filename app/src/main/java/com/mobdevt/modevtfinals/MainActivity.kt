@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import com.mobdevt.modevtfinals.databinding.ActivityMainBinding
-import com.mobdevt.modevtfinals.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

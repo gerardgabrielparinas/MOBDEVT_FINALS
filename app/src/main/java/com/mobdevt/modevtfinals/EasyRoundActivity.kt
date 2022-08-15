@@ -1,5 +1,6 @@
 package com.mobdevt.modevtfinals
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -24,11 +25,15 @@ class EasyRoundActivity : AppCompatActivity() {
             viewModel.checkAnswer(binding.answerInput.toString(),1)
             binding.answerInput.text?.clear()
         }
+
+        binding.btnSubmit.setOnClickListener {
+            viewModel.checkLast(binding.answerInput.toString())
+            val intent = Intent(this, EndActivity::class.java)
+            startActivity(intent)
+        }
+
         viewModel.question.observe(this){
             binding.txtQuestion.text = it
         }
-
-        viewModel.checkAnswer(binding.answerInput.toString(),1)
-
     }
 }
