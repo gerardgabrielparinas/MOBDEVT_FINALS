@@ -1,27 +1,25 @@
 package com.mobdevt.modevtfinals
 
-import android.content.Intent
-import android.util.Log
-import androidx.core.content.PackageManagerCompat.LOG_TAG
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mobdevt.modevtfinals.util.MainHelper
+import kotlin.properties.Delegates
 
 class MainViewModel: ViewModel() {
     private val _question = MutableLiveData<String>()
     private val _answer = MutableLiveData<String>()
     private val _score = MutableLiveData<Int>()
-    private val _name = MutableLiveData<String>()
 
-    private var easyIndex: Int = -1
-    private var mediumIndex: Int = -1
-    private var hardIndex: Int = -1
+
+    private var easyIndex: Int = 0
+    private var mediumIndex: Int = 0
+    private var hardIndex: Int = 0
 
     val question:LiveData<String> = _question
     val answer:LiveData<String> = _answer
     val score:LiveData<Int> = _score
-    val name:LiveData<String> =_name
+
 
     fun loadQuestion(difficulty: Int, questionIndex: Int) {
         if (difficulty == 1) {
@@ -61,5 +59,18 @@ class MainViewModel: ViewModel() {
             tempIndex = hardIndex
         }
         loadQuestion(level, tempIndex)
+    }
+
+    fun resetProgress() {
+        easyIndex = -1
+        mediumIndex = -1
+        hardIndex = -1
+        _score.value = 0
+    }
+
+    fun checkLast(lastAnswer: String) {
+        if (lastAnswer == _answer.value) {
+            _score.value = _score.value?.plus(1)
+        }
     }
 }
