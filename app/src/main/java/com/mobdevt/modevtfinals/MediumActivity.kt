@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import com.mobdevt.modevtfinals.databinding.ActivityMainBinding
 import com.mobdevt.modevtfinals.databinding.ActivityMediumBinding
 import com.mobdevt.modevtfinals.util.MainHelper
+import com.mobdevt.modevtfinals.viewModel.MainViewModel
 
 class MediumActivity : AppCompatActivity() {
 
