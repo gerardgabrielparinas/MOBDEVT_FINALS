@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.mobdevt.modevtfinals.databinding.ActivityEasyRoundBinding
 import com.mobdevt.modevtfinals.databinding.ActivityHardBinding
+import com.mobdevt.modevtfinals.util.MainHelper
 
 class EasyRoundActivity : AppCompatActivity() {
 
@@ -17,19 +18,19 @@ class EasyRoundActivity : AppCompatActivity() {
         binding = ActivityEasyRoundBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        lifecycle.addObserver(MainObserver())
+
         val viewModel by viewModels<MainViewModel>()
 
-        viewModel.loadQuestion(1, 0)
-
         binding.btnNext.setOnClickListener{
-            viewModel.checkAnswer(binding.answerInput.toString(),1)
-            binding.answerInput.text?.clear()
-        }
-
-        binding.btnSubmit.setOnClickListener {
-            viewModel.checkLast(binding.answerInput.toString())
-            val intent = Intent(this, EndActivity::class.java)
-            startActivity(intent)
+            if (MainHelper.getLast() == false) {
+                viewModel.checkAnswer(binding.answerInput.toString(),3)
+                binding.answerInput.text?.clear()
+            }
+            else if (MainHelper.getLast() == true) {
+                val intent = Intent(this, EndActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         viewModel.question.observe(this){

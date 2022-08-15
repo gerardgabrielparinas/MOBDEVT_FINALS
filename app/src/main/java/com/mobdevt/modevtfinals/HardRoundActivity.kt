@@ -22,22 +22,19 @@ class HardRoundActivity : AppCompatActivity() {
 
         val viewModel by viewModels<MainViewModel>()
 
-        viewModel.loadQuestion(3, 0)
-
         binding.btnNext3.setOnClickListener{
-            viewModel.checkAnswer(binding.answerInput3.toString(),3)
-            binding.answerInput3.text?.clear()
-        }
-
-        binding.btnSubmitHard.setOnClickListener {
-            viewModel.checkLast(binding.answerInput3.toString())
-            val intent = Intent(this, EndActivity::class.java)
-            startActivity(intent)
+            if (MainHelper.getLast() == false) {
+                viewModel.checkAnswer(binding.answerInput3.text.toString() ,3)
+                binding.answerInput3.text?.clear()
+            }
+            else if (MainHelper.getLast() == true) {
+                val intent = Intent(this, EndActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         viewModel.question.observe(this){
             binding.txtQuestion3.text = it
         }
     }
-
 }

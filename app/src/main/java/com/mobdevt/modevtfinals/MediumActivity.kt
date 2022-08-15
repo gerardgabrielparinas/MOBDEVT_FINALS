@@ -21,17 +21,15 @@ class MediumActivity : AppCompatActivity() {
 
         val viewModel by viewModels<MainViewModel>()
 
-        viewModel.loadQuestion(2, 0)
-
         binding.btnNext.setOnClickListener{
-            viewModel.checkAnswer(binding.answerInput.toString(),2)
-            binding.answerInput.text?.clear()
-        }
-
-        binding.btnSubmitMedium.setOnClickListener {
-            viewModel.checkLast(binding.answerInput.toString())
-            val intent = Intent(this, EndActivity::class.java)
-            startActivity(intent)
+            if (MainHelper.getLast() == false) {
+                viewModel.checkAnswer(binding.answerInput.toString(),3)
+                binding.answerInput.text?.clear()
+            }
+            else if (MainHelper.getLast() == true) {
+                val intent = Intent(this, EndActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         viewModel.question.observe(this){
