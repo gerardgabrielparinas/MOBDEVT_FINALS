@@ -3,6 +3,7 @@ package com.mobdevt.modevtfinals
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.viewModels
 import com.mobdevt.modevtfinals.databinding.ActivityHardBinding
 
@@ -16,9 +17,13 @@ class HardRoundActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         super.onCreate(savedInstanceState)
         binding = ActivityHardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         val viewModel by viewModels<MainViewModel>()
 

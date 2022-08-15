@@ -4,61 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_list"><![CDATA[
-    tools:context=".HardRoundctivity">
+    android:background="@color/light_orange">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="57dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.729"
+        app:srcCompat="@drawable/ic_algo" />
 
-
-    ]]>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/question"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtQuestion3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnSubmitHard"
-        android:layout_width="120dp"
-        android:layout_height="50sp"
-        android:background="@drawable/custom_btn_start"
-        android:text="Submit Quiz"
-        android:textColor="#FFFFFF"
+        style="@style/btn_settings"
+        android:layout_width="124dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="132dp"
+        android:background="@drawable/custom_btn_next"
+        android:text="@string/submit"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNext3" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnNext3"
-        android:layout_width="120dp"
-        android:layout_height="50sp"
+        style="@style/btn_settings"
+        android:layout_width="185dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="52dp"
         android:background="@drawable/custom_btn_start"
         android:text="Next Question"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btnSubmitHard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerInput3" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/answerInput3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Type your answer..."
-        android:textColor="@color/black"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="249dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="68dp"
         app:layout_constraintBottom_toTopOf="@+id/btnNext3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtQuestion3" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/answerInput3"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:fontFamily="@font/inter_regular"
+            android:hint="@string/answer"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/txtQuestion3"
-        android:layout_width="300dp"
+        android:layout_width="327dp"
         android:layout_height="wrap_content"
-        android:text="Fuck hard"
+        android:layout_marginBottom="72dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/placeholder"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/answerInput3"
+        android:textColor="@android:color/background_dark"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

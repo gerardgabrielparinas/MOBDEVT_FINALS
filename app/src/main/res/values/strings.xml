@@ -8,4 +8,10 @@
     <string name="diff_mid">Medium</string>
     <string name="diff_hard">Hard</string>
     <string name="diff_rand">Random</string>
+    <string name="placeholder">Algorithms Quiz</string>
+    <string name="nextQ">Next Question</string>
+    <string name="submit">Submit</string>
+    <string name="answer">Answer here!</string>
+    <string name="question">Question</string>
+
 </resources>
