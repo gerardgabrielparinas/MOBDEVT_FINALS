@@ -60,7 +60,7 @@ class MainViewModel: ViewModel() {
             answer.contains(_answer.value.toString(), ignoreCase = true) -> _score.value = _score.value!! + 1
             else -> _score.value = _score.value!! + 0
         }
-        //Log.i("DEBUG", "Current Score is: ${_score.value}")
+        Log.i("DEBUG", "Current Score is: ${_score.value}")
         MainHelper.setScore(_score.value!!)
 
         when(level){
