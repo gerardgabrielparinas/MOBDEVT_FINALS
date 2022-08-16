@@ -13,7 +13,7 @@ class MainViewModel: ViewModel() {
     private val _answer = MutableLiveData<String>()
     private val _score = MutableLiveData<Int>()
     private val _scoreValue = MutableLiveData<Int>()
-    private val _count = MutableLiveData<Int>()
+    private val _count = MutableLiveData<Int>(0)
 
     private var easyIndex: Int = 0
     private var mediumIndex: Int = 0
@@ -30,6 +30,7 @@ class MainViewModel: ViewModel() {
     init {
         loadQuestion(quizLevel, 0)
         _score.value = 0
+
     }
 
 
@@ -44,7 +45,11 @@ class MainViewModel: ViewModel() {
                 _answer.value = MainHelper.getHardAnswer(questionIndex)
             }
         }
-
+        when{
+            MainHelper.getCount() == MainHelper.getMaxIndex(difficulty) -> MainHelper.setLast(true)
+            else -> MainHelper.setLast(false)
+        }
+        Log.i("DEBUG", "${MainHelper.getLast()}")
     }
 
 
@@ -55,7 +60,7 @@ class MainViewModel: ViewModel() {
             _answer.value -> _score.value = _score.value!! + 1
             else -> _score.value = _score.value!! + 0
         }
-        Log.i("DEBUG", "Current Score is: ${_score.value}")
+        //Log.i("DEBUG", "Current Score is: ${_score.value}")
         MainHelper.setScore(_score.value!!)
 
         when(level){
@@ -73,11 +78,13 @@ class MainViewModel: ViewModel() {
             }
         }
 
-        /* when{
-            _count.value!! > 10 -> _count.value!! + 1
-            else -> _count.value!! + 0
-        } */
+        Log.i("DEBUG", "${MainHelper.getMaxIndex(level)}")
 
+        when{
+            MainHelper.getCount() < MainHelper.getMaxIndex(level) -> MainHelper.incrementCount()
+            else -> MainHelper.sameCount()
+        }
+        Log.i("DEBUG", "${MainHelper.getCount()}")
         loadQuestion(level, tempIndex)
 
     }
@@ -94,7 +101,7 @@ class MainViewModel: ViewModel() {
             _answer.value -> _score.value = _score.value!! + 1
             else -> _score.value = _score.value!! + 0
         }
-        Log.i("DEBUG", "Current Score is: ${_score.value}")
+        //Log.i("DEBUG", "Current Score is: ${_score.value}")
         MainHelper.setScore(_score.value!!)
     }
 }

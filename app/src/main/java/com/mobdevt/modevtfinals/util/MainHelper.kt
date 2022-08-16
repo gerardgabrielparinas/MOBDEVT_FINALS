@@ -44,6 +44,8 @@ class MainHelper {
         var quizLevel: Int = 0
         private var isLast: Boolean = false
         private var score: Int = 0
+        private var maxIndex = 0
+        private var count = 0
 
         fun getEasyQuestion(index:Int): String {
             return easyQuestions[index].component1()
@@ -77,6 +79,31 @@ class MainHelper {
         }
         fun getScore(): Int {
             return score
+        }
+
+        fun getMaxIndex(level: Int): Int {
+            when(level){
+                1 -> {
+                    maxIndex = easyQuestions.indexOf(easyQuestions.last())
+                }
+                2 -> {
+                    maxIndex = mediumQuestions.indexOf(mediumQuestions.last())
+                }
+                3 -> {
+                    maxIndex = hardQuestions.indexOf(hardQuestions.last())
+                }
+            }
+            return maxIndex
+        }
+
+        fun incrementCount() {
+            count++
+        }
+        fun sameCount() {
+            count + 0
+        }
+        fun getCount(): Int {
+            return count
         }
     }
 }
