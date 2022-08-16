@@ -43,6 +43,7 @@ class MainHelper {
 
         var quizLevel: Int = 0
         private var isLast: Boolean = false
+        private var score: Int = 0
 
         fun getEasyQuestion(index:Int): String {
             return easyQuestions[index].component1()
@@ -69,6 +70,13 @@ class MainHelper {
         }
         fun getLast(): Boolean {
             return isLast
+        }
+
+        fun setScore(score: Int) {
+            this.score = score
+        }
+        fun getScore(): Int {
+            return score
         }
     }
 }

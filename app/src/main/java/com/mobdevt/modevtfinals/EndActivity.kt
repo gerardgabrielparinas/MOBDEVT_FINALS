@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.mobdevt.modevtfinals.databinding.ActivityEndBinding
+import com.mobdevt.modevtfinals.util.MainHelper
 
 class EndActivity : AppCompatActivity() {
 
@@ -17,6 +18,8 @@ class EndActivity : AppCompatActivity() {
 
         val viewModel by viewModels<MainViewModel>()
         //viewModel.loadScore()
+
+        binding.txtScore.text = MainHelper.getScore().toString()
 
         binding.btnRestart.setOnClickListener {
             viewModel.resetProgress()
@@ -35,7 +38,7 @@ class EndActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-        binding.txtScore.text = "${viewModel.score.value.toString()}"
+        //binding.txtScore.text = "${viewModel.score.value.toString()}"
 
 //        viewModel.score.observe(this) {
 //            binding.txtScore.text = "$it"

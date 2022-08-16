@@ -1,5 +1,6 @@
 package com.mobdevt.modevtfinals
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,6 +18,7 @@ class MainViewModel: ViewModel() {
     private var easyIndex: Int = 0
     private var mediumIndex: Int = 0
     private var hardIndex: Int = 0
+    var tempIndex: Int = 0
 
     val question:LiveData<String> = _question
     val answer:LiveData<String> = _answer
@@ -47,12 +49,14 @@ class MainViewModel: ViewModel() {
 
 
     fun checkAnswer(answer: String, level: Int) {
-        var tempIndex: Int = 0
+
 
         when(answer){
             _answer.value -> _score.value = _score.value!! + 1
             else -> _score.value = _score.value!! + 0
         }
+        Log.i("DEBUG", "Current Score is: ${_score.value}")
+        MainHelper.setScore(_score.value!!)
 
         when(level){
             1 -> {
@@ -69,10 +73,10 @@ class MainViewModel: ViewModel() {
             }
         }
 
-        when{
+        /* when{
             _count.value!! > 10 -> _count.value!! + 1
             else -> _count.value!! + 0
-        }
+        } */
 
         loadQuestion(level, tempIndex)
 
@@ -86,8 +90,11 @@ class MainViewModel: ViewModel() {
     }
 
     fun checkLast(lastAnswer: String) {
-        if (lastAnswer == _answer.value) {
-            _score.value = _score.value?.plus(1)
+        when(lastAnswer){
+            _answer.value -> _score.value = _score.value!! + 1
+            else -> _score.value = _score.value!! + 0
         }
+        Log.i("DEBUG", "Current Score is: ${_score.value}")
+        MainHelper.setScore(_score.value!!)
     }
 }

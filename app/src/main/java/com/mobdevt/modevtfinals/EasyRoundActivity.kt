@@ -37,7 +37,8 @@ class EasyRoundActivity : AppCompatActivity() {
         }
 
         binding.btnSubmit.setOnClickListener {
-            viewModel.checkAnswer(binding.answerInput.text.toString(), 1)
+            //viewModel.checkAnswer(binding.answerInput.text.toString(), 1)
+            viewModel.checkLast(binding.answerInput.text.toString())
             binding.answerInput.text?.clear()
             val intent = Intent(this, EndActivity::class.java)
             startActivity(intent)
