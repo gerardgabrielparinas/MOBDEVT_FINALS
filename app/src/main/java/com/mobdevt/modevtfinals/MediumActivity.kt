@@ -27,19 +27,18 @@ class MediumActivity : AppCompatActivity() {
         val viewModel by viewModels<MainViewModel>()
 
         binding.btnNext.setOnClickListener{
-            if (MainHelper.getLast() == false) {
-                viewModel.checkAnswer(binding.answerInput.toString(),3)
-                binding.answerInput.text?.clear()
-            }
-            else if (MainHelper.getLast() == true) {
-                val intent = Intent(this, EndActivity::class.java)
-                startActivity(intent)
-            }
+            viewModel.checkAnswer(binding.answerInput.text.toString(),2)
+            binding.answerInput.text?.clear()
         }
 
         viewModel.question.observe(this){
             binding.txtQuestion.text = it
         }
+        //Save for demo - Jems
+        viewModel.score.observe(this) {
+            binding.txtMidScore?.text = "$it"
+        }
+
     }
 
 }

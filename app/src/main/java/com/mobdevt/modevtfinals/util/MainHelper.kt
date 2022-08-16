@@ -35,11 +35,14 @@ class MainHelper {
                                            Question("In what time complexity can we find the diameter of a binary tree optimally?", "O(V+E)"),
                                            Question("In a graph of n nodes and n edges, how many cycles will be present?", "1"),
                                            Question("A node in a tree, such that removing it splits the tree into forests, with size of each connected component being not greater than n / 2 is called?", "Centroid"),
-                                           Question("Whatalgorithm are used to find the shortest path from a source node to all other nodes in a weighted graph?", "Djikstra's Algorithm"),
+                                           Question("What algorithm are used to find the shortest path from a source node to all other nodes in a weighted graph?", "Djikstra's Algorithm"),
         )
-        //don't mind this!
+        //References:
         /*https://testbook.com/objective-questions/mcq-on-binary--5eea6a0c39140f30f369e0c8?adlt=strict&toWww=1&redig=41FCE4AFC5924CAB91B07BF61E64760F*/
         /*https://engineeringinterviewquestions.com/mcqs-on-the-binary-number-system-answers/?adlt=strict&toWww=1&redig=7DEB872DF6D6439F8C4FD57EA831E9B7*/
+
+        var quizLevel: Int = 0
+        private var isLast: Boolean = false
 
         fun getEasyQuestion(index:Int): String {
             return easyQuestions[index].component1()
@@ -60,6 +63,12 @@ class MainHelper {
         }
         fun getHardAnswer(index: Int): String {
             return hardQuestions[index].component2()
+        }
+        fun setLast(last: Boolean) {
+            isLast = last
+        }
+        fun getLast(): Boolean {
+            return isLast
         }
     }
 }

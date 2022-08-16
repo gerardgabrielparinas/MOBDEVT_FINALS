@@ -7,6 +7,18 @@
     android:background="@color/apple_green"
     tools:context=".MediumActivity">
 
+    <TextView
+        android:id="@+id/txtMidScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="scr"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="60dp"

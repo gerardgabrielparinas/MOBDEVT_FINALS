@@ -16,7 +16,7 @@ class EndActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel by viewModels<MainViewModel>()
-        viewModel.loadScore()
+        //viewModel.loadScore()
 
         binding.btnRestart.setOnClickListener {
             viewModel.resetProgress()
@@ -29,15 +29,16 @@ class EndActivity : AppCompatActivity() {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "Thank you for taking the DSTALGO quiz!" +
                 "\nYour final score is:" +
-                "\n${viewModel.score} pts" +
+                "\n${viewModel.score.value.toString()} pts" +
                 "\nGreat Job!")
                 type = "text/plain"
             }
             startActivity(intent)
         }
+        binding.txtScore.text = "${viewModel.score.value.toString()}"
 
-        viewModel.score.observe(this) {
-            binding.txtScore.text = it.toString()
-        }
+//        viewModel.score.observe(this) {
+//            binding.txtScore.text = "$it"
+//        }
     }
 }

@@ -15,6 +15,7 @@ class EasyRoundActivity : AppCompatActivity() {
 
     //private val tvQuestion by lazy {binding.tvQuestion}
     private lateinit var binding : ActivityEasyRoundBinding
+    private var score = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,19 +32,31 @@ class EasyRoundActivity : AppCompatActivity() {
         val viewModel by viewModels<MainViewModel>()
 
         binding.btnNext.setOnClickListener{
-            if (MainHelper.getLast() == false) {
-                viewModel.checkAnswer(binding.answerInput.toString(),3)
-                binding.answerInput.text?.clear()
-            }
-            else if (MainHelper.getLast() == true) {
-                val intent = Intent(this, EndActivity::class.java)
-                startActivity(intent)
-            }
+            viewModel.checkAnswer(binding.answerInput.text.toString(), 1)
+            binding.answerInput.text?.clear()
+        }
+
+        binding.btnSubmit.setOnClickListener {
+            viewModel.checkAnswer(binding.answerInput.text.toString(), 1)
+            binding.answerInput.text?.clear()
+            val intent = Intent(this, EndActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         viewModel.question.observe(this){
             binding.txtQuestion.text = it
         }
+
+//Save for demo - Jems
+        viewModel.score.observe(this) {
+            binding.txtScore.text = "$it"
+        }
     }
+
+    private fun saveScore(){
+//blank for now, please refer to activity 06
+    }
+
 
 }
