@@ -14,7 +14,6 @@ import com.mobdevt.modevtfinals.util.MainHelper
 
 class MediumActivity : AppCompatActivity() {
 
-    //private val tvQuestion by lazy {binding.tvQuestion}
     private lateinit var binding : ActivityMediumBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,14 +46,11 @@ class MediumActivity : AppCompatActivity() {
             val intent = Intent(this, EndActivity::class.java)
             startActivity(intent)
             finish()
+            overridePendingTransition(android.R.anim.fade_out,android.R.anim.fade_out)
         }
 
         viewModel.question.observe(this){
             binding.txtQuestion.text = it
-        }
-        //Save for demo - Jems
-        viewModel.score.observe(this) {
-            binding.txtMidScore?.text = "$it"
         }
 
     }

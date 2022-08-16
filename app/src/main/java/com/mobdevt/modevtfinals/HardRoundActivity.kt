@@ -15,7 +15,6 @@ import com.mobdevt.modevtfinals.util.MainHelper
 
 class HardRoundActivity : AppCompatActivity() {
 
-    //private val tvQuestion by lazy {binding.tvQuestion}
     private lateinit var binding : ActivityHardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,13 +47,11 @@ class HardRoundActivity : AppCompatActivity() {
             val intent = Intent(this, EndActivity::class.java)
             startActivity(intent)
             finish()
+            overridePendingTransition(android.R.anim.fade_out,android.R.anim.fade_out)
         }
 
         viewModel.question.observe(this){
             binding.txtQuestion3.text = it
-        }
-        viewModel.score.observe(this) {
-            binding.txtScore3?.text = "$it"
         }
     }
 }

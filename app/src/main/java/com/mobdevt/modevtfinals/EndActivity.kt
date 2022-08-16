@@ -3,6 +3,7 @@ package com.mobdevt.modevtfinals
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.viewModels
 import com.mobdevt.modevtfinals.databinding.ActivityEndBinding
 import com.mobdevt.modevtfinals.util.MainHelper
@@ -12,12 +13,15 @@ class EndActivity : AppCompatActivity() {
     private lateinit var binding : ActivityEndBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         super.onCreate(savedInstanceState)
         binding = ActivityEndBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         val viewModel by viewModels<MainViewModel>()
-        //viewModel.loadScore()
 
         binding.txtScore.text = MainHelper.getScore().toString()
 
@@ -25,6 +29,9 @@ class EndActivity : AppCompatActivity() {
             viewModel.resetProgress()
             val intent = Intent(this, DifficultyActivity::class.java)
             startActivity(intent)
+            finish()
+            overridePendingTransition(android.R.anim.fade_out,android.R.anim.fade_out)
+
         }
 
         binding.btnShare.setOnClickListener {
@@ -38,10 +45,5 @@ class EndActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-        //binding.txtScore.text = "${viewModel.score.value.toString()}"
-
-//        viewModel.score.observe(this) {
-//            binding.txtScore.text = "$it"
-//        }
     }
 }

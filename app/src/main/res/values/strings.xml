@@ -13,5 +13,9 @@
     <string name="submit">Submit</string>
     <string name="answer">Answer here!</string>
     <string name="question">Question</string>
+    <string name="reset">Try Again?</string>
+    <string name="share">Share your score</string>
+    <string name="congrats">Congratulations!\nYour score is...</string>
+    <string name="score_placeholder">score</string>
 
 </resources>

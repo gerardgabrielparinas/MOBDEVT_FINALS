@@ -16,10 +16,7 @@ import com.mobdevt.modevtfinals.util.MainHelper
 
 class EasyRoundActivity : AppCompatActivity() {
 
-    //private val tvQuestion by lazy {binding.tvQuestion}
     private lateinit var binding : ActivityEasyRoundBinding
-    private var score = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -53,21 +50,13 @@ class EasyRoundActivity : AppCompatActivity() {
             val intent = Intent(this, EndActivity::class.java)
             startActivity(intent)
             finish()
+            overridePendingTransition(android.R.anim.fade_out,android.R.anim.fade_out)
         }
 
         viewModel.question.observe(this){
             binding.txtQuestion.text = it
         }
 
-//Save for demo - Jems
-        viewModel.score.observe(this) {
-            binding.txtScore.text = "$it"
-        }
     }
-
-    private fun saveScore(){
-//blank for now, please refer to activity 06
-    }
-
 
 }
