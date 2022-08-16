@@ -56,8 +56,8 @@ class MainViewModel: ViewModel() {
     fun checkAnswer(answer: String, level: Int) {
 
 
-        when(answer){
-            _answer.value -> _score.value = _score.value!! + 1
+        when{
+            answer.contains(_answer.value.toString(), ignoreCase = true) -> _score.value = _score.value!! + 1
             else -> _score.value = _score.value!! + 0
         }
         //Log.i("DEBUG", "Current Score is: ${_score.value}")
@@ -90,9 +90,11 @@ class MainViewModel: ViewModel() {
     }
 
     fun resetProgress() {
-        easyIndex = -1
-        mediumIndex = -1
-        hardIndex = -1
+        MainHelper.resetCount()
+        easyIndex = 0
+        mediumIndex = 0
+        hardIndex = 0
+        tempIndex = 0
         _score.value = 0
     }
 

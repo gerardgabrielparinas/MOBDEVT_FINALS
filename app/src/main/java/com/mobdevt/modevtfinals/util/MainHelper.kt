@@ -102,6 +102,10 @@ class MainHelper {
         fun sameCount() {
             count + 0
         }
+
+        fun resetCount() {
+            count = 0
+        }
         fun getCount(): Int {
             return count
         }
