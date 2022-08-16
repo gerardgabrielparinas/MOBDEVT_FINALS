@@ -32,7 +32,7 @@ class EndActivity : AppCompatActivity() {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "Thank you for taking the DSTALGO quiz!" +
                 "\nYour final score is:" +
-                "\n${viewModel.score.value.toString()} pts" +
+                "\n${MainHelper.getScore()} pts" +
                 "\nGreat Job!")
                 type = "text/plain"
             }
