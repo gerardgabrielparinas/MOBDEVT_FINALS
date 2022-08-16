@@ -49,7 +49,7 @@ class MainViewModel: ViewModel() {
             MainHelper.getCount() == MainHelper.getMaxIndex(difficulty) -> MainHelper.setLast(true)
             else -> MainHelper.setLast(false)
         }
-        Log.i("DEBUG", "${MainHelper.getLast()}")
+        //Log.i("DEBUG", "${MainHelper.getLast()}")
     }
 
 
