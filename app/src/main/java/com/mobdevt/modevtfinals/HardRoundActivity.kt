@@ -3,8 +3,10 @@ package com.mobdevt.modevtfinals
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import com.mobdevt.modevtfinals.databinding.ActivityHardBinding
 
 import com.mobdevt.modevtfinals.databinding.ActivityMainBinding
@@ -30,7 +32,22 @@ class HardRoundActivity : AppCompatActivity() {
         binding.btnNext3.setOnClickListener{
             viewModel.checkAnswer(binding.answerInput3.text.toString() ,3)
             binding.answerInput3.text?.clear()
+            Log.i("DEBUG", "Last Question? ${MainHelper.getLast()}")
+            when{
+                MainHelper.getLast() -> {
+                    binding.btnNext3.setEnabled(false)
+                    binding.btnNext3.isVisible = false
+                    Log.i("DEBUG", "Button is HIDDEN!")
+                }
+            }
+        }
 
+        binding.btnSubmitHard.setOnClickListener {
+            viewModel.checkLast(binding.answerInput3.text.toString())
+            binding.answerInput3.text?.clear()
+            val intent = Intent(this, EndActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         viewModel.question.observe(this){
